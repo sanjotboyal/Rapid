@@ -5,7 +5,8 @@ import { Home, Ledger, Login, Register, Room, RoomFeed } from './src/screens/';
 const AppNavigator = StackNavigator({
 	LoginScreen: { screen: Login }
 }, {
-	initialRouteName: 'LoginScreen'
+	initialRouteName: 'LoginScreen',
+	headerMode: 'none'
 });
 
 

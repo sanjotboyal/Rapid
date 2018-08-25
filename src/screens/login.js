@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { LoginForm } from '../components/LoginForm';
-import FooterTabNav from '../components/FooterTabNav';
+import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
+
+import LoginScreen from '../components/login/LoginScreen';
+import SecondScreen from '../components/SecondScreen';
 
 class Login extends Component {
-
   render() {
-
-    return (
-      <View>
-        <Text>LOGIN SCREEN</Text>
-        <FooterTabNav />
-
-      </View>
-    );
-  }
+	  return (
+	    <Router>
+	      <Scene key="root">
+	        <Scene key="loginScreen"
+	          component={LoginScreen}
+	        	animation='fade'
+	          hideNavBar={true}
+	          initial={true}
+	        />
+	        <Scene key="secondScreen"
+	          component={SecondScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	      </Scene>
+	    </Router>
+	  );
+	}
 }
 
 export { Login };
