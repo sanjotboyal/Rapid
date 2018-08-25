@@ -10,8 +10,6 @@ import {
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-import arrowImg from '../images/left-arrow.png';
-
 const SIZE = 40;
 
 export default class SecondScreen extends Component {
@@ -54,7 +52,6 @@ export default class SecondScreen extends Component {
           onPress={this._onPress}
           style={styles.button}
           activeOpacity={1}>
-          <Image style={styles.image} source={arrowImg} />
         </TouchableOpacity>
         <Animated.View
           style={[styles.circle, {transform: [{scale: changeScale}]}]}
