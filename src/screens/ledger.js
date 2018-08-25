@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-export default class ledger extends Component {
+export default class Ledger extends Component {
 
   render() {
 
     return (
       <View>
-        <Text>test</Text>
+        <Text>tests</Text>
       </View>
     );
   }

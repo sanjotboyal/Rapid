@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-export default class login extends Component {
+export default class Login extends Component {
 
   render() {
 
