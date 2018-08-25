@@ -7,7 +7,7 @@ class Room extends Component {
 
     return (
       <View>
-        <Text>test</Text>
+        <Text>Room</Text>
       </View>
     );
   }

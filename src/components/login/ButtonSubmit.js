@@ -35,17 +35,7 @@ export default class ButtonSubmit extends Component {
     console.log("email: " + this.props.email + " password: " + this.props.password);
 
     // Imagine if the validation working.
-    fetch('https://mywebsite.com/endpoint/', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstParam: 'yourValue',
-        secondParam: 'yourOtherValue',
-      }),
-    });
+    
 
     if (this.state.isLoading) return;
 
