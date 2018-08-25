@@ -1,4 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
+import Login from './src/screens/Login';
+
+const AppNavigator = StackNavigator({
+	LoginScreen: { screen: Login }
+}, {
+	initialRouteName: 'LoginScreen'
+});
+
+
+
+export default class App extends React.Component {
+  render() {
+    return <AppNavigator />;
+  }
+}
 

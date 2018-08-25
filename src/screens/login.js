@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { LoginForm } from '../components/LoginForm';
 
 export default class Login extends Component {
 
@@ -7,7 +8,7 @@ export default class Login extends Component {
 
     return (
       <View>
-        <Text>test</Text>
+        <Text>LOGIN SCREEN</Text>
       </View>
     );
   }
