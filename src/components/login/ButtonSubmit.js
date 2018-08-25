@@ -31,6 +31,22 @@ export default class ButtonSubmit extends Component {
   }
 
   _onPress() {
+
+    console.log("email: " + this.props.email + " password: " + this.props.password);
+
+    // Imagine if the validation working.
+    fetch('https://mywebsite.com/endpoint/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue',
+      }),
+    });
+
     if (this.state.isLoading) return;
 
     this.setState({isLoading: true});
@@ -91,7 +107,7 @@ export default class ButtonSubmit extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: -95,
+    top: 15,
     alignItems: 'center',
     justifyContent: 'flex-start',
   },

@@ -37,6 +37,7 @@ export default class Form extends Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container} enabled>
         <UserInput
+          text={this.props.email}
           source={usernameImg}
           placeholder="Username"
           autoCapitalize={'none'}
@@ -44,6 +45,7 @@ export default class Form extends Component {
           autoCorrect={false}
         />
         <UserInput
+          text={this.props.password}
           source={passwordImg}
           secureTextEntry={this.state.showPass}
           placeholder="Password"

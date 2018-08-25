@@ -7,6 +7,20 @@ import SignupSection from './SignupSection';
 import {StyleSheet, View} from 'react-native';
 
 export default class LoginScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {email: '', password: ''};
+  }
+
+  handleChangeEmail = (text) => {
+    this.setState({ email: text })
+  }
+
+  handleChangePassword = (text) => {
+    this.setState({ password: text })
+  }
+
   render() {
     const styles = {
       containerStyle: {
@@ -18,9 +32,9 @@ export default class LoginScreen extends Component {
     return (
       <View style = { styles.containerStyle }>
         <Logo />
-        <Form />
+        <Form email={this.handleChangeEmail} password={this.handleChangePassword} />
+        <ButtonSubmit email={this.state.email} password={this.state.password} />
         <SignupSection />
-        <ButtonSubmit />
       </View>
     );
   }

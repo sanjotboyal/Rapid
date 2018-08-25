@@ -5,6 +5,7 @@ import LoginScreen from '../components/login/LoginScreen';
 import SecondScreen from '../components/SecondScreen';
 
 class Login extends Component {
+
   render() {
 	  return (
 	    <Router>

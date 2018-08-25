@@ -4,12 +4,17 @@ import Dimensions from 'Dimensions';
 import {StyleSheet, View, TextInput, Image} from 'react-native';
 
 export default class UserInput extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.inputWrapper}>
         <Image source={this.props.source} style={styles.inlineImg} />
         <TextInput
           style={styles.input}
+          onChangeText={this.props.text}
           placeholder={this.props.placeholder}
           secureTextEntry={this.props.secureTextEntry}
           autoCorrect={this.props.autoCorrect}
