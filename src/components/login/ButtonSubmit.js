@@ -13,6 +13,10 @@ import {
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
+import { Toast } from 'native-base';
+
+import axios from 'axios';
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 const MARGIN = 40;
@@ -30,14 +34,39 @@ export default class ButtonSubmit extends Component {
     this._onPress = this._onPress.bind(this);
   }
 
-  _onPress() {
+async Login() {
+}
+
+async _onPress() {
 
     console.log("email: " + this.props.email + " password: " + this.props.password);
+    if (this.state.isLoading) return;
 
     // Imagine if the validation working.
-    
+    if (!this.props.email || this.props.email.indexOf('@') == -1 || this.props.email.indexOf('.') == -1) {
+      Toast.show({
+              text: 'Invalid email. Please input an email.',
+              buttonText: 'Okay'
+            });
+      return;
+    }
 
-    if (this.state.isLoading) return;
+   let loggedIn = false;
+
+   await axios.get('https://rapid-api.herokuapp.com/api/login?email=' + this.props.email + "&password=" + this.props.password)
+    .then(response => {
+      loggedIn = true;
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+      Toast.show({
+              text: 'Invalid email and/or password.',
+              buttonText: 'Okay'
+            });
+    });
+
+    if (!loggedIn) return;
 
     this.setState({isLoading: true});
     Animated.timing(this.buttonAnimated, {
