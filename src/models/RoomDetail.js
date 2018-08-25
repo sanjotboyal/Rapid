@@ -5,20 +5,18 @@ import CardSection from '../components/CardSection';
 
 
 const RoomDetail = ({ room }) => {
-  const { name, funds } = room ;
 
   return (
     <Card>
-
       <CardSection>
         <View style={styles.textContainer}>
-          <Text style={styles.headerText}> Room: { name } </Text>
+          <Text style={styles.headerText}> Room: { room } </Text>
         </View>
       </CardSection>
 
       <CardSection>
         <View style={styles.textContainer}>
-          <Text style={styles.fundText}> $ { funds } </Text>
+          <Text style={styles.fundText}> Fund: $ </Text>
         </View>
       </CardSection> 
 

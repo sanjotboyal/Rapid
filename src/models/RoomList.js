@@ -10,16 +10,15 @@ class RoomList extends Component {
 
     axios.get('https://rapid-api.herokuapp.com/api/users/-LKmdR7P1v8uXb2tRnNd')
 
-    .then(response => this.setState({ rooms: Object.keys(response.data.groups) }))
-
+    .then(response => this.setState({ rooms: Object.values(response.data.groups) }))
     .catch(err => {
       console.log(err);
     });
+
    
   }
 
   renderRooms() {
-   console.log("testss: " + this.state.rooms[0]);
     
     return this.state.rooms.map(room =>
       <RoomDetail key={room} room={room} />
