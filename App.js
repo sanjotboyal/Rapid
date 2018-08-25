@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import Login from './src/screens/Login';
+import { Home, Ledger, Login, Register, Room, RoomFeed } from './src/screens/';
 
 const AppNavigator = StackNavigator({
 	LoginScreen: { screen: Login }
@@ -10,9 +10,10 @@ const AppNavigator = StackNavigator({
 
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return <AppNavigator />;
   }
 }
 
+export default App;
