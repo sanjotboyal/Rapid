@@ -1,4 +1,13 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+
+import React from 'react';
+import { View, AppRegistry } from 'react-native';
+import Header from './src/components/header';
+
+const App = () => (
+  <View style={{ flex: 1 }}>
+    <Header headerText={'Test Header'} />
+  </View>
+);
+
 
 AppRegistry.registerComponent('Rapid', () => App);
