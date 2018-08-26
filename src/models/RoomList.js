@@ -16,7 +16,9 @@ class RoomList extends Component {
 
     axios.get('https://rapid-api.herokuapp.com/api/login?email=' + this.props.email + "&password=" + this.props.password)
 
-    .then(response => this.setState({ rooms: response.data.user.groups }))
+    .then(response => {
+      this.setState({ rooms: response.data.user.groups });
+    })
     .catch(err => {
       console.log(err);
     });

@@ -38,7 +38,7 @@ export default class ButtonSubmit extends Component {
 
 async _onPress() {
 
-    console.log("email: " + this.props.email + " password: " + this.props.password);
+    //console.log("email: " + this.props.email + " password: " + this.props.password);
     if (this.state.isLoading) return;
 
     // Imagine if the validation working.
@@ -55,9 +55,9 @@ async _onPress() {
    await axios.get('https://rapid-api.herokuapp.com/api/login?email=' + this.props.email + "&password=" + this.props.password)
     .then(response => {
       loggedIn = true;
-      console.log(response.data['user']);
+      //console.log(response.data['user']);
       user = response.data['user'];
-      console.log(user);
+      //console.log(user);
     })
     .catch(err => {
       console.log(err);
@@ -81,7 +81,7 @@ async _onPress() {
     }, 500);
 
     setTimeout(() => {
-      console.log(user);
+      //console.log(user);
       Actions.secondScreen({user: user});
       this.setState({isLoading: false});
       this.buttonAnimated.setValue(0);

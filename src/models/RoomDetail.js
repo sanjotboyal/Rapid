@@ -1,15 +1,18 @@
 import React from 'react';
+import { createStackNavigator } from 'react-navigation';
 import { Text, View, Image} from 'react-native';
 import Card from '../components/Card';
 import CardSection from '../components/CardSection';
+import NavigationService from '../config/NavigationService';
 
 const RoomDetail = ({ room }) => {
 
 const { funds, name } = room;
 
   return (
-    <Card onPress={() => console.log( { name } )} >
-
+    <Card onPress={() =>  {
+      NavigationService.navigate('Room');
+    }} >
       <CardSection>
         <View style={styles.thumbnailContainer}>
           <Image

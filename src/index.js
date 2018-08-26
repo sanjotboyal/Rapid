@@ -3,10 +3,13 @@ import { createStackNavigator } from 'react-navigation';
 import { Tab } from './config/navigation';
 import { Home, Ledger, Login, Register, Room, RoomFeed } from './screens/';
 import { Root } from "native-base";
+import NavigationService from './config/NavigationService';
 
 const RootStack = createStackNavigator(
   {
-    Login: Login
+    Login: Login,
+    Room: Room,
+    RoomFeed: RoomFeed
   },
   {
     initialRouteName: 'Login',
@@ -20,7 +23,7 @@ export default class App extends Component{
 
 		return (
       <Root>
-        <RootStack />
+        <RootStack ref={navigatorRef => { NavigationService.setTopLevelNavigator(navigatorRef); }}/>
       </Root>
     );
 	}

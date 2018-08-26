@@ -6,8 +6,7 @@ class RoomFeed extends Component {
 
 	constructor(props) {
 		super(props);
-		console.log("in roomFeed");
-		console.log(props.screenProps.user);
+		//console.log("in roomFeed");;
 	}
 
   render() {

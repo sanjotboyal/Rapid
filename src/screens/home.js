@@ -4,8 +4,8 @@ import { Text, View, Image } from 'react-native';
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		console.log("in home");
-		console.log(props.screenProps.user);
+		//console.log("in home");
+		//console.log(props.screenProps.user);
 	}
 
   render() {
