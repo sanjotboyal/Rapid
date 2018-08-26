@@ -4,13 +4,19 @@ import axios from 'axios';
 import RoomDetail from './RoomDetail';
 
 class RoomList extends Component {
+  constructor(props) {
+    super(props);
+    console.log("in roomlist, email " + props.email + " and pass " + props.password);
+  }
+
   state = { rooms: [] };
 
   componentDidMount() {
+    console.log("componentDidMount roomlist");
 
-    axios.get('https://rapid-api.herokuapp.com/api/users/-LKn_iTj1Huyt9COY_xH')
+    axios.get('https://rapid-api.herokuapp.com/api/login?email=' + this.props.email + "&password=" + this.props.password)
 
-    .then(response => this.setState({ rooms: response.data.groups }))
+    .then(response => this.setState({ rooms: response.data.user.groups }))
     .catch(err => {
       console.log(err);
     });

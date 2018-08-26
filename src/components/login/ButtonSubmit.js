@@ -21,6 +21,8 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 const MARGIN = 40;
 
+let user = { }
+
 export default class ButtonSubmit extends Component {
   constructor() {
     super();
@@ -33,9 +35,6 @@ export default class ButtonSubmit extends Component {
     this.growAnimated = new Animated.Value(0);
     this._onPress = this._onPress.bind(this);
   }
-
-async Login() {
-}
 
 async _onPress() {
 
@@ -56,12 +55,14 @@ async _onPress() {
    await axios.get('https://rapid-api.herokuapp.com/api/login?email=' + this.props.email + "&password=" + this.props.password)
     .then(response => {
       loggedIn = true;
-      console.log(response);
+      console.log(response.data['user']);
+      user = response.data['user'];
+      console.log(user);
     })
     .catch(err => {
       console.log(err);
       Toast.show({
-              text: 'Invalid email and/or password.',
+              text: 'Invalid email and/or password.', 
               buttonText: 'Okay'
             });
     });
@@ -77,10 +78,11 @@ async _onPress() {
 
     setTimeout(() => {
       this._onGrow();
-    }, 2000);
+    }, 500);
 
     setTimeout(() => {
-      Actions.secondScreen();
+      console.log(user);
+      Actions.secondScreen({user: user});
       this.setState({isLoading: false});
       this.buttonAnimated.setValue(0);
       this.growAnimated.setValue(0);
@@ -90,7 +92,7 @@ async _onPress() {
   _onGrow() {
     Animated.timing(this.growAnimated, {
       toValue: 1,
-      duration: 200,
+      duration: 500,
       easing: Easing.linear,
     }).start();
   }
