@@ -28,7 +28,7 @@ class RoomList extends Component {
   renderRooms() {
     console.log(this.state.rooms);
     return Object.keys(this.state.rooms).map(room =>
-      <RoomDetail key={room} room={this.state.rooms[room]} />
+      <RoomDetail key={room} room={this.state.rooms[room]} id={room} />
     );
     
   }

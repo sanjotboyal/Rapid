@@ -5,13 +5,13 @@ import Card from '../components/Card';
 import CardSection from '../components/CardSection';
 import NavigationService from '../config/NavigationService';
 
-const RoomDetail = ({ room }) => {
+const RoomDetail = ({ room, id }) => {
 
 const { funds, name } = room;
 
   return (
     <Card onPress={() =>  {
-      NavigationService.navigate('Room');
+      NavigationService.navigate('Room', { id: id });
     }} >
       <CardSection>
         <View style={styles.thumbnailContainer}>
