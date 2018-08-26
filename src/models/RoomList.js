@@ -8,20 +8,19 @@ class RoomList extends Component {
 
   componentDidMount() {
 
-    axios.get('https://rapid-api.herokuapp.com/api/users/-LKmdR7P1v8uXb2tRnNd')
+    axios.get('https://rapid-api.herokuapp.com/api/users/-LKn_iTj1Huyt9COY_xH')
 
-    .then(response => this.setState({ rooms: Object.values(response.data.groups) }))
+    .then(response => this.setState({ rooms: response.data.groups }))
     .catch(err => {
       console.log(err);
     });
-
    
   }
 
   renderRooms() {
-    
-    return this.state.rooms.map(room =>
-      <RoomDetail key={room} room={room} />
+    console.log(this.state.rooms);
+    return Object.keys(this.state.rooms).map(room =>
+      <RoomDetail key={room} room={this.state.rooms[room]} />
     );
     
   }

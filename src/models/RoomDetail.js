@@ -6,17 +6,19 @@ import CardSection from '../components/CardSection';
 
 const RoomDetail = ({ room }) => {
 
+const { funds, name } = room;
+
   return (
-    <Card>
+    <Card onPress={() => console.log( { name} )} >
       <CardSection>
-        <View style={styles.textContainer}>
-          <Text style={styles.headerText}> Room: { room } </Text>
+        <View style={ styles.textContainer }>
+          <Text style={ styles.headerText }> { name } </Text>
         </View>
       </CardSection>
 
       <CardSection>
         <View style={styles.textContainer}>
-          <Text style={styles.fundText}> Fund: $ </Text>
+          <Text style={styles.fundText}> Fund: $ { funds } </Text>
         </View>
       </CardSection> 
 
@@ -26,7 +28,7 @@ const RoomDetail = ({ room }) => {
 
 const styles = {
   textContainer: {
-    justifyContent: 'space-around'
+    marginLeft:120
   },
   thumbnailContainer: {
     justifyContent: 'center',
@@ -44,7 +46,8 @@ const styles = {
     width: null
   },
   headerText: {
-    fontSize: 18
+    fontSize: 30,
+    
   },
   fundText: {
     fontSize: 25

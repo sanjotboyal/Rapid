@@ -3,11 +3,11 @@ import { Text, View } from 'react-native';
 
 class Room extends Component {
 
-  render() {
+  render(props) {
 
     return (
       <View>
-        <Text>Room</Text>
+        <Text>{props.name}</Text>
       </View>
     );
   }
