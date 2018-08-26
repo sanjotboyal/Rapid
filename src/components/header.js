@@ -22,6 +22,7 @@ const styles = {
     alignItems: 'center',
     height: 60,
     paddingTop: 15,
+    paddingBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 5 },
     ...Platform.select({

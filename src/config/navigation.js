@@ -7,7 +7,7 @@ export const Tab = TabNavigator({
 		screen: Home,
 	},
 
-	RoomFeed: {
+	Rooms: {
 		screen: RoomFeed, 
 	},
 	Ledger : {
