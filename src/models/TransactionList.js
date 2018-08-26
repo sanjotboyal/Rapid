@@ -14,13 +14,13 @@ class TransactionList extends Component {
       this.setState({ transactions: response.data.transactions });
     })
     .catch(err => {
-      console.log(err);
+      //console.log(err);
     });
    
   }
 
   renderTransactions() {
-    console.log(this.state.transactions);
+    //console.log(this.state.transactions);
     return Object.keys(this.state.transactions).map(transaction =>
       <TransactionDetails key={transaction} transaction={this.state.transactions[transaction]} id={transaction} />
     );

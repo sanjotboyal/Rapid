@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, BackHandler, ScrollView, StatusBar, StyleSheet} from 'react-native';
+import { Text, View, TextInput, BackHandler, ScrollView, StatusBar, StyleSheet} from 'react-native';
 import Card from '../components/Card';
 import CardSection from '../components/CardSection';
 import Button from '../components/Button';
 import PieChart from 'react-native-pie-chart';
 import Header from '../components/Header';
 import axios from 'axios';
+import Modal from "react-native-modal";
 
 let group = {};
 
@@ -21,7 +22,8 @@ componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
 }
 
-state = {name:'', funds:'', transactions: [], users:[], initialFunds:[], fundsGiven:[]};
+state = {name:'', funds:'', transactions: [], users:[], initialFunds:[], fundsGiven:[], fundAmount: '', requestAmount: ''};
+
 componentDidMount(props){
 	const id = this.props.navigation.getParam('id', 'Loading...');
 	
@@ -125,11 +127,12 @@ handleBackButtonClick() {
 		      	<CardSection>
 			      	<View style = {styles.buttonPane}>
 			      		<Button onPress={() => console.log("Request")} name={'Request'}/>
-			      		<Button onPress={() => console.log("Fund")} name={'Fund'}/>
+			      		<Button onPress={() => this._toggleFundModal} name={'Fund'}/>
 			      		<Button onPress={() => console.log("Share")} name={'Share'}/>
 		  			</View>
 		      	</CardSection>
 		   </Card>
+
 	   </View>
     );
   }
