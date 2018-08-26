@@ -11,8 +11,8 @@ const { funds, name } = room;
 
   return (
     <Card onPress={() =>  {
-      NavigationService.navigate('Room');
-    }} >
+      NavigationService.navigate('Room', { room_id: "hello" });
+    }}>
       <CardSection>
         <View style={styles.thumbnailContainer}>
           <Image
