@@ -13,16 +13,21 @@ const TransactionDetails = ({ transaction, id }) => {
       <CardSection>
         <View style={styles.headerPlacement}>
           <Text style={styles.header}>{ id }</Text>
-          <Text> $ { amount }</Text>
+        </View>
+        <View>
+          <Text style={styles.textStyle}> $ { amount }</Text>
         </View>
       </CardSection>
-
   );
 };
 
 const styles = {
     header: {
-      fontSize:22,
+      fontSize:22
+    },
+
+    textStyle:{
+      fontSize:18
     },
 
     headerPlacement: {

@@ -29,6 +29,7 @@ const { funds, name } = room;
 const styles = {
     header: {
       fontSize:22,
+      fontWeight: 'bold'
     },
 
     headerPlacement: {
