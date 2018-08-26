@@ -9,8 +9,7 @@ import axios from 'axios';
 
 let group = {};
 
-class Room extends Component {
-	
+class Room extends Component { 
 
 constructor(props) {
     super(props)
@@ -22,13 +21,27 @@ componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
 }
 
-state = {name:'', funds:''};
+state = {name:'', funds:'', transactions: [], users:[], initialFunds:[], fundsGiven:[]};
 componentDidMount(props){
 	const id = this.props.navigation.getParam('id', 'Loading...');
+	
 
 	axios.get('https://rapid-api.herokuapp.com/api/groups/' + id)
 	.then(response => {
-      this.setState({ name: response.data.name, funds: response.data.funds});
+      this.setState({ name: response.data.name, funds: response.data.funds, transactions: Object.values(response.data.transactions), users: Object.keys(response.data.users)});
+       for(var i= 0; i < this.state.users.length; i++){
+       		this.state.fundsGiven[i] = 0;
+       }
+
+      for(var i= 0; i < this.state.users.length; i++){
+      	for(var j=0; j < this.state.transactions.length; j++){
+      		if(this.state.transactions[j].userId == this.state.users[i]){
+      			this.state.fundsGiven[i] = this.state.fundsGiven[i] + this.state.transactions[j].amount;
+      		}
+      	}
+      }
+      this.setState({initialFunds: this.state.fundsGiven});
+
     })
     .catch(err => {
       console.log(err);
@@ -75,8 +88,8 @@ handleBackButtonClick() {
 	};
 
 	const chart_wh = 250
-    const series = [123, 321, 123, 789, 537]
-    const sliceColor = ['#F44336','#2196F3','#FFEB3B', '#4CAF50', '#FF9800']
+    const series = this.state.initialFunds;
+    const sliceColor = ['#F44336','#2196F3']
 
     return (
     	<View>

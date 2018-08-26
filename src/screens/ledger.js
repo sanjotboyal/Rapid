@@ -7,7 +7,7 @@ class Ledger extends Component {
 
     return (
       <View>
-        <Text>Ledger</Text>
+        
       </View>
     );
   }
