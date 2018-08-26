@@ -1,26 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image} from 'react-native';
 import Card from '../components/Card';
 import CardSection from '../components/CardSection';
-
 
 const RoomDetail = ({ room }) => {
 
 const { funds, name } = room;
 
   return (
-    <Card onPress={() => console.log( { name} )} >
-      <CardSection>
-        <View style={ styles.textContainer }>
-          <Text style={ styles.headerText }> { name } </Text>
-        </View>
-      </CardSection>
+    <Card onPress={() => console.log( { name } )} >
 
       <CardSection>
-        <View style={styles.textContainer}>
-          <Text style={styles.fundText}> Fund: $ { funds } </Text>
+        <View style={styles.thumbnailContainer}>
+          <Image
+            style={styles.thumbnailStyle}
+            source={require('../img/groupIcon.png')}
+          />
         </View>
-      </CardSection> 
+
+        <View style={styles.textContainer}>
+          <Text style={styles.headerText}>{ name }</Text>
+          <Text> $ { funds }</Text>
+        </View>
+      </CardSection>
 
     </Card>
   );
@@ -28,7 +30,7 @@ const { funds, name } = room;
 
 const styles = {
   textContainer: {
-    marginLeft:120
+    justifyContent: 'space-around'
   },
   thumbnailContainer: {
     justifyContent: 'center',
@@ -40,17 +42,9 @@ const styles = {
     height: 50,
     width: 50
   },
-  imageStyle: {
-    height: 300,
-    flex: 1,
-    width: null
-  },
+
   headerText: {
-    fontSize: 30,
-    
-  },
-  fundText: {
-    fontSize: 25
+    fontSize: 18
   }
 };
 
