@@ -8,15 +8,15 @@ export default class GroupCreationModal extends Component {
  constructor(props) {
     super(props);
     console.log("in groupcreatemodal, email " + props.email);
-  }
-  state = {
-    isModalVisible: false,
-    groupId: '',
-    groupName: '',
-    email: this.props.email
-  };
 
-  addToGroup() {
+    this.state = {
+	    isModalVisible: false,
+	    groupId: '',
+	    groupName: ''
+  	};
+  }
+
+  addToGroup = () => {
   	/*
   	let users = [];
 
@@ -24,7 +24,7 @@ export default class GroupCreationModal extends Component {
     .then(response => {
     	users = response.data;
     	Object.keys(users).map(user => {
-  		if (users[user].email === getEmail) {
+  		if (users[us er].email === getEmail) {
   			console.log("found id! " + user);
   		}
   		});
@@ -33,6 +33,24 @@ export default class GroupCreationModal extends Component {
       console.log(err)
     });
     */
+    let jay = "-LKn_7Jb8N5q654yZN-j";
+    let sanjot = "-LKn_iTj1Huyt9COY_xH";
+
+    axios.post('https://rapid-api.herokuapp.com/api/users/' + jay + "/addGroup?groupId=" + this.state.groupId);
+    this._toggleModal();
+  }
+
+  createGroup = () => {
+  	console.log("groupname: " + this.state.groupName);
+
+  	axios.post('https://rapid-api.herokuapp.com/api/groups', {
+  		name: this.state.groupName
+  	})
+  	.then(response => {
+  		console.log(response.data);
+  		this.setState({groupId: response.data['id']});
+  		this.addToGroup();
+  	})
   }
 
   _toggleModal = () =>
@@ -56,7 +74,10 @@ export default class GroupCreationModal extends Component {
           		<Tabs style={{backgroundColor: '#6bc7c6'}}>
           			<Tab heading="Join Group" style={{ justifyContent: 'center', alignItems: 'center'}}>
 
-          				<TextInput placeholder="Group ID" onChangeText={(text) => this.setState({groupId: text})}
+          				<TextInput placeholder="Group ID" onChangeText={(text) => {
+          					this.setState({groupId: text})
+          					console.log("groupId is now: " + this.state.groupId);
+          				}}
           				value={this.state.groupId} style={{ width: 200  }} />
           				<Button style={{ backgroundColor: '#6bc7c6' }} onPress={this.addToGroup} title="Join Group"/>
 
@@ -65,7 +86,7 @@ export default class GroupCreationModal extends Component {
 
           				<TextInput placeholder="Group Name" onChangeText={(text) => this.setState({groupName: text})}
           				value={this.state.groupName} style={{ width: 200  }} />
-          				<Button style={{ backgroundColor: '#6bc7c6' }} onPress={this._toggleModal} title="Create Group"/>
+          				<Button style={{ backgroundColor: '#6bc7c6' }} onPress={this.createGroup} title="Create Group"/>
 
           			</Tab>
           		</Tabs>
