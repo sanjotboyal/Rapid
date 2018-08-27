@@ -5,7 +5,7 @@
 # Basic Overview
 A collaborative money sharing platform.
 
-This is app provides a quick streamlined process to collaborative money sharing. This app revolutionizes the way people share money. Users can create a room with their friends and family in which they, together, pool in money. Then this money become accessible for occasions listed above, or for any other needs. From this pool, members can ask to make a transaction where every other member of the room would have to agree too. The application records the shares of the each member and displays a history of when money has been both deposited and withdrawn for transparency.
+This app provides a quick streamlined process to collaborative money sharing, revolutionizing the way people share money. Users can create a room with their friends and family in which they, together, pool in money. Then this money become accessible for any occasion: groceries, projects, parties, business expenses, etc. From this pool, members can ask to make a transaction where every other member of the room would have to agree too. The application records the shares of the each member and displays a history of when money has been both deposited and withdrawn for transparency.
 
 # Technologies
 This app was built with React-Native 0.55.4.
